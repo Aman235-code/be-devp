@@ -38,6 +38,3 @@ app.patch("/notes/:index", (req, res) => {
 });
 
 module.exports = app;
-
-// htvNowmVKeJnj6Rp
-// mongodb+srv://yt:htvNowmVKeJnj6Rp@cluster0.skopojj.mongodb.net/
