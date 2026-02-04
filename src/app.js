@@ -38,10 +38,18 @@ app.delete("/notes/:id", async (req, res) => {
   });
 });
 
-app.patch("/notes/:index", (req, res) => {
-  const index = req.params.index;
+app.patch("/notes/:id", async (req, res) => {
+  const id = req.params.id;
   const { description } = req.body;
-  notes[index].description = description;
+  // notes[index].description = description;
+  await noteModel.findOneAndUpdate(
+    {
+      _id: id,
+    },
+    {
+      description,
+    },
+  );
 
   res.status(200).json({
     message: "Note updated successfully",
