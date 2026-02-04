@@ -1,11 +1,11 @@
 const express = require("express");
+const nodeModel = require("./models/note.model.js");
 
 const app = express();
 
 app.use(express.json());
 
 const notes = [];
-
 app.post("/notes", (req, res) => {
   notes.push(req.body);
   res.status(201).json({
