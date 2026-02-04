@@ -20,16 +20,20 @@ app.post("/notes", async (req, res) => {
 
 app.get("/notes", async (req, res) => {
   const notes = await noteModel.find();
+  // const notes = await noteModel.findOne({
+  //   title: "NT1",
+  // });
   return res.status(200).json({
     Message: "Notes fetched",
     notes,
   });
 });
 
-app.delete("/notes/:index", (req, res) => {
-  const index = req.params.index;
-  delete notes[index];
-  res.status(200).json({
+app.delete("/notes/:id", async (req, res) => {
+  const id = req.params.id;
+  // delete notes[index];
+  await noteModel.findOneAndDelete({ _id: id });
+  return res.status(200).json({
     message: "Note deleted successfully",
   });
 });
