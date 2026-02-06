@@ -1,7 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 const Feed = () => {
   const [posts, setposts] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3000/posts")
+      .then((res) => setposts(res.data.posts));
+  }, []);
+
   return (
     <section className="feed-section">
       <h1>Feed</h1>
