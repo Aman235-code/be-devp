@@ -16,6 +16,12 @@ async function registerUser(req, res) {
     },
     process.env.JWT_SECRET,
   );
+
+  return res.status(201).json({
+    message: "User registered successfully",
+    user,
+    token,
+  });
 }
 
 module.exports = { registerUser };
