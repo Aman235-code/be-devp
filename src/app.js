@@ -5,6 +5,7 @@ const app = express();
 app.use(express.json());
 
 // const notes = [];
+
 app.post("/notes", async (req, res) => {
   // notes.push(req.body);
   const data = req.body;
