@@ -5,6 +5,7 @@ const app = express();
 app.use(express.json());
 
 // const notes = [];
+
 app.post("/notes", async (req, res) => {
   // notes.push(req.body);
   const data = req.body;
@@ -24,7 +25,7 @@ app.get("/notes", async (req, res) => {
   //   title: "NT1",
   // });
   return res.status(200).json({
-    Message: "Notes fetched",
+    Message: "Notes fetched successfully",
     notes,
   });
 });
