@@ -12,7 +12,7 @@ async function registerUser(req, res) {
   if (userExists) {
     return res.status(409).json({
       success: false,
-      message: "User already exists",
+      message: "User Already Exists",
     });
   }
 
@@ -37,7 +37,7 @@ async function registerUser(req, res) {
 
   return res.status(201).json({
     success: true,
-    message: "User Registered successfully",
+    message: "User Registered Successfully",
     user: {
       id: newUser._id,
       username: newUser.username,
@@ -57,7 +57,7 @@ async function loginUser(req, res) {
   if (!user) {
     return res.status(401).json({
       success: false,
-      message: "Invalid credentials",
+      message: "Invalid Credentials",
     });
   }
 
@@ -66,7 +66,7 @@ async function loginUser(req, res) {
   if (!validPassword) {
     return res.status(401).json({
       success: false,
-      message: "Invalid credentials",
+      message: "Invalid Credentials",
     });
   }
 
@@ -82,7 +82,7 @@ async function loginUser(req, res) {
 
   return res.status(200).json({
     success: true,
-    message: "User Logged In successfully",
+    message: "User Logged In Successfully",
     user: {
       id: user._id,
       username: user.username,
